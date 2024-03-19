@@ -1,0 +1,36 @@
+import turtle
+import math
+
+# Configuración inicial
+screen = turtle.Screen()
+screen.setup(width=600, height=600)
+screen.bgcolor("black")
+
+pen = turtle.Turtle()
+pen.speed(0)
+pen.color("red")
+pen.width(2)
+
+# Función para dibujar la rosa
+def draw_rose():
+    for angle in range(0, 360, 5):
+        x = math.radians(angle)
+        y = math.sin(4*x) * math.cos(x)
+        x *= 150
+        y *= 150
+        pen.goto(x, y)
+        pen.down()
+        pen.dot()
+        pen.up()
+
+# Dibujar la rosa
+draw_rose()
+
+# Movimiento
+while True:
+    pen.clear()
+    draw_rose()
+    pen.right(5)
+
+# Mantener la ventana abierta
+turtle.done()
